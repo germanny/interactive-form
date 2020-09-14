@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const designSelect = document.getElementById("design");
   const shirtColors = document.getElementById("shirt-colors");
   const shirtColorsLabel = shirtColors.querySelector("label");
-  const shirtColorsSelect = shirtColors.querySelector("select");
+  const shirtColorsSelect = document.getElementById("color");
 
   // Reset the label
   shirtColorsLabel.textContent = "Please select a T-Shirt theme.";
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // set the t-shirt select field on "design" select field change
   designSelect.addEventListener("change", (e) => {
-    const isSelected = e.target.value === 'heart js' ? 3 : 0;
+    const isSelected = e.target.value === 'heart js' ? 3 : (e.target.value === 'Select Theme') ? 0 : 1;
 
     for (let i = 0; i < shirtColorsSelect.options.length; i++) {
       setTshirtThemeOptions(e.target.value, shirtColorsSelect.options[i]);
